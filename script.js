@@ -72,8 +72,18 @@ function makeProducerDiv(producer) {
   return containerDiv;
 }
 
+//parent could be a class, tag, or id
+//
+
 function deleteAllChildNodes(parent) {
   // your code here
+  // let parentNode = document.get;
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+  // if(parent.childNodes.length >0){
+  //   parent.removeChild()
+  // }
 }
 
 function renderProducers(data) {

@@ -249,7 +249,7 @@ describe("Slice 2: Unlocking & Rendering Producers", function () {
       `).window.document;
     });
 
-    xit("calls the `.removeChild()` method on the dom node passed in at least once", function () {
+    it("calls the `.removeChild()` method on the dom node passed in at least once", function () {
       const spyOnRemoveChild = sinon.spy(doc.body, "removeChild");
       code.deleteAllChildNodes(doc.body);
       expect(spyOnRemoveChild.called).to.be.equal(true);
@@ -257,7 +257,7 @@ describe("Slice 2: Unlocking & Rendering Producers", function () {
       spyOnRemoveChild.restore();
     });
 
-    xit("gets rid of all of the children of the DOM node passed in", function () {
+    it("gets rid of all of the children of the DOM node passed in", function () {
       code.deleteAllChildNodes(doc.body);
       expect(doc.body.childNodes.length).to.be.equal(0);
     });
