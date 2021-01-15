@@ -31,8 +31,24 @@ function getUnlockedProducers(data) {
   return newArr;
 }
 
+// function makeDisplayNameFromId(id) {
+//   // your code here
+//   // let newStr = id[0].toUpperCase + id.slice(1);
+//   let newStrArr = id.split("_");
+//   return newStrArr.forEach(
+//     (x) => x.slice(0, 1).toUpperCase() + x.slice(1).toLowerCase()
+//   );
+// }
+
+function capFirstChar(word) {
+  return word.slice(0, 1).toUpperCase() + word.slice(1);
+}
+
 function makeDisplayNameFromId(id) {
-  // your code here
+  let newStrArr = id.split("_");
+  let capArr = newStrArr.map((x) => capFirstChar(x));
+
+  return capArr.join(" ");
 }
 
 // You shouldn't need to edit this function-- its tests should pass once you've written makeDisplayNameFromId

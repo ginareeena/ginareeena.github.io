@@ -171,7 +171,7 @@ describe("Slice 2: Unlocking & Rendering Producers", function () {
       expect(results).to.have.lengthOf(2);
     });
 
-    xit("does not mutate the data", function () {
+    it("does not mutate the data", function () {
       const snapshot = JSON.stringify(data);
       code.getUnlockedProducers(data);
       expect(JSON.stringify(data)).to.equal(snapshot);
@@ -179,12 +179,12 @@ describe("Slice 2: Unlocking & Rendering Producers", function () {
   });
 
   describe("The makeDisplayNameFromId function", function () {
-    xit("returns a string", function () {
+    it("returns a string", function () {
       const result = code.makeDisplayNameFromId("input_string");
       expect(result).to.be.a("string");
     });
 
-    xit("transforms its input string from snake_case to Title Case", function () {
+    it("transforms its input string from snake_case to Title Case", function () {
       const testStrings = [
         "input_string",
         "mr._coffee",
@@ -208,12 +208,12 @@ describe("Slice 2: Unlocking & Rendering Producers", function () {
       qty: 5,
     };
 
-    xit("returns a DOM element", function () {
+    it("returns a DOM element", function () {
       const result = code.makeProducerDiv(producer);
       expect(result).to.be.an("HTMLDivElement");
     });
 
-    xit("correctly fills in template string", function () {
+    it("correctly fills in template string", function () {
       // Here, we make a tiny fake DOM local to this test so we can append the element returned by makeProducerdiv to it. Then, we query this tiny DOM to make some assertions about it.
       const result = code.makeProducerDiv(producer);
       const doc = new JSDOM(`<!DOCTYPE html><body></body>`).window.document;
