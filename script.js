@@ -76,19 +76,30 @@ function makeProducerDiv(producer) {
 //
 
 function deleteAllChildNodes(parent) {
-  // your code here
-  // let parentNode = document.get;
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
-  // if(parent.childNodes.length >0){
-  //   parent.removeChild()
-  // }
 }
 
 function renderProducers(data) {
-  // your code here
+  let producerContainer = document.getElementById("producer_container");
+
+  unlockProducers(data.producers, data.coffee);
+
+  let filteredData = data.producers.filter((x) => x.unlocked === "true");
+
+  filteredData.forEach((x) =>
+    producerContainer.appendChild(makeProducerDiv(x))
+  );
+
+  // let newProducersArr = filteredData.map((x) => makeProducerDiv(x));
+
+  // newProducersArr.forEach((x) => producerContainer.append(x));
 }
+
+//appends some producer div elements to the producer container...
+
+// we're going to use this to make the divs and append them: makeProducerDiv(producer)
 
 /**************
  *   SLICE 3

@@ -284,7 +284,7 @@ describe("Slice 2: Unlocking & Rendering Producers", function () {
     });
 
     // We're giving you a big hint, here
-    xit("calls document.getElementById() or document.querySelector()", function () {
+    it("calls document.getElementById() or document.querySelector()", function () {
       const spyOnGetElementById = sinon.spy(document, "getElementById");
       const spyOnQuerySelector = sinon.spy(document, "querySelector");
       code.renderProducers(data);
@@ -295,19 +295,19 @@ describe("Slice 2: Unlocking & Rendering Producers", function () {
       spyOnQuerySelector.restore();
     });
 
-    // Big hint: don't just render blank divs; we've written the makeProdcuerDiv function for you, which should be called, here.
-    xit("appends some producer div elements to the producer container", function () {
+    // Big hint: don't just render blank divs; we've written the makeProducerDiv function for you, which should be called, here.
+    it("appends some producer div elements to the producer container", function () {
       code.renderProducers(data);
       const producerContainer = document.getElementById("producer_container");
       // Did you generate the right number of child nodes?
       assert.isAbove(producerContainer.childNodes.length, 0);
 
-      // Here's we're just checking something about the structure of the first one to make sure it roughly matches the structure of what makeProducerDiv returns. We could have tested any number of properties of this node; here we're just checking to make sure it has 5 children anywhere in the tree below it
+      // Here we're just checking something about the structure of the first one to make sure it roughly matches the structure of what makeProducerDiv returns. We could have tested any number of properties of this node; here we're just checking to make sure it has 5 children anywhere in the tree below it
       expect(producerContainer.childNodes[0].childNodes).to.have.length(5);
     });
 
     // Hint: call the function written to do this!
-    xit("unlocks any locked producers which need to be unlocked", function () {
+    it("unlocks any locked producers which need to be unlocked", function () {
       code.renderProducers(data);
       expect(data.producers[0].unlocked).to.be.equal(true);
       expect(data.producers[1].unlocked).to.be.equal(true);
