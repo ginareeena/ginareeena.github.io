@@ -84,13 +84,36 @@ function deleteAllChildNodes(parent) {
 function renderProducers(data) {
   let producerContainer = document.getElementById("producer_container");
 
+  producerContainer.innerHTML = "";
+
+  // console.log("producerContainer", producerContainer);
+  console.log("producerContainer before", producerContainer);
+
   unlockProducers(data.producers, data.coffee);
 
-  let filteredData = data.producers.filter((x) => x.unlocked === "true");
+  let filteredData = data.producers.filter((x) => x.unlocked === true);
+
+  // console.log("data", data);
+  // console.log("filteredData", filteredData);
+
+  // console.log("producerContainer before:", producerContainer.innerHTML);
 
   filteredData.forEach((x) =>
     producerContainer.appendChild(makeProducerDiv(x))
   );
+  // console.log("producerContainer after", producerContainer.innerHTML);
+
+  // .forEach(producerContainer.appendChild(makeProducerDiv(x)));
+
+  //  let newDiv = makeProducerDiv();
+
+  // producerContainer.appendChild();
+
+  // let filteredData = data.producers.filter((x) => x.unlocked === "true");
+
+  // filteredData.forEach((x) =>
+  //   producerContainer.appendChild(makeProducerDiv(x))
+  // );
 
   // let newProducersArr = filteredData.map((x) => makeProducerDiv(x));
 

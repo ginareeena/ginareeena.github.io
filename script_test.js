@@ -314,14 +314,14 @@ describe("Slice 2: Unlocking & Rendering Producers", function () {
       expect(data.producers[2].unlocked).to.be.equal(false);
     });
 
-    xit("only appends unlocked producers", function () {
+    it("only appends unlocked producers", function () {
       code.renderProducers(data);
       const producerContainer = document.getElementById("producer_container");
       expect(producerContainer.childNodes.length).to.be.equal(2);
       expect(producerContainer.childNodes[0].childNodes).to.have.length(5);
     });
 
-    xit("deletes the producer container's children before appending new producers", function () {
+    it("deletes the producer container's children before appending new producers", function () {
       const producerContainer = document.getElementById("producer_container");
       const fakeProducer = document.createElement("div");
       producerContainer.appendChild(fakeProducer);
@@ -330,7 +330,7 @@ describe("Slice 2: Unlocking & Rendering Producers", function () {
       expect(producerContainer.childNodes[0].childNodes).to.have.length(5);
     });
 
-    xit("is not in some way hardcoded to pass the tests", function () {
+    it("is not in some way hardcoded to pass the tests", function () {
       data.producers.push({ id: "producer_D", price: 1, unlocked: true });
       const producerContainer = document.getElementById("producer_container");
       code.renderProducers(data);
