@@ -158,6 +158,14 @@ function attemptToBuyProducer(data, producerId) {
 
 function buyButtonClick(event, data) {
   // your code here
+  producerId = event.target.id.slice(4);
+  if (canAffordProducer(data, producerId)) {
+    attemptToBuyProducer(data, producerId);
+  } else {
+    window.alert("Not enough coffee!");
+  }
+  // producerName=id.slice(4)
+  // data.producers.filter(x=>x.id===prodr)
 }
 
 function tick(data) {

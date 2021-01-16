@@ -585,7 +585,7 @@ describe("Slice 3: Buying Producers & Tick", function () {
     });
 
     // Hint: use the function you've already written!
-    xit("mutates the data only if the player can afford the producer", function () {
+    it("mutates the data only if the player can afford the producer", function () {
       // buyButtonClick accepts a browser event argument. Here we simulate this by creating an event object ourselves we'll only give that fake event bject the properties that are relevant for our purposes
 
       // This purchase should suceed
@@ -602,7 +602,7 @@ describe("Slice 3: Buying Producers & Tick", function () {
     });
 
     // Hint: see https://developer.mozilla.org/en-US/docs/Web/API/Window/alert
-    xit('shows an alert box with the message "Not enough coffee!" only if the player cannot afford the producer', function () {
+    it('shows an alert box with the message "Not enough coffee!" only if the player cannot afford the producer', function () {
       const spyOnAlert = sinon.spy(window, "alert");
 
       // This purchase should fail
