@@ -521,7 +521,7 @@ describe("Slice 3: Buying Producers & Tick", function () {
       expect(result).to.be.equal(true);
     });
 
-    xit("increments the quantity of the producer in question only if the player can afford it", function () {
+    it("increments the quantity of the producer in question only if the player can afford it", function () {
       code.attemptToBuyProducer(data, "producer_A");
       expect(data.producers[0].qty).to.be.equal(1);
 
@@ -529,7 +529,7 @@ describe("Slice 3: Buying Producers & Tick", function () {
       expect(data.producers[1].qty).to.be.equal(0);
     });
 
-    xit("decrements the player's coffee by the *current* price of the producer, but only if the player can afford it", function () {
+    it("decrements the player's coffee by the *current* price of the producer, but only if the player can afford it", function () {
       code.attemptToBuyProducer(data, "producer_B");
       expect(data.coffee).to.be.equal(100);
 
@@ -537,7 +537,7 @@ describe("Slice 3: Buying Producers & Tick", function () {
       expect(data.coffee).to.be.equal(50);
     });
     // hint: use a function already written
-    xit("updates the price of the producer to 125% of the previous price, rounded down, but only if the player can afford the producer", function () {
+    it("updates the price of the producer to 125% of the previous price, rounded down, but only if the player can afford the producer", function () {
       code.attemptToBuyProducer(data, "producer_A");
       expect(data.producers[0].price).to.be.equal(62);
 
@@ -545,14 +545,14 @@ describe("Slice 3: Buying Producers & Tick", function () {
       expect(data.producers[1].price).to.be.equal(200);
     });
     // hint: use a function already written
-    xit("updates the total CPS, but only if the player can afford the producer", function () {
+    it("updates the total CPS, but only if the player can afford the producer", function () {
       code.attemptToBuyProducer(data, "producer_A");
       expect(data.totalCPS).to.be.equal(5);
 
       code.attemptToBuyProducer(data, "producer_B");
       expect(data.totalCPS).to.be.equal(5);
     });
-    xit("does not modify data in any way if the player tries to buy something they can't afford", function () {
+    it("does not modify data in any way if the player tries to buy something they can't afford", function () {
       const snapshot = JSON.stringify(data);
       code.attemptToBuyProducer(data, "producer_B");
       expect(JSON.stringify(data)).to.equal(snapshot);

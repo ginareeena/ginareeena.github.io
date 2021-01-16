@@ -141,7 +141,19 @@ function updatePrice(oldPrice) {
 
 function attemptToBuyProducer(data, producerId) {
   let filteredData = data.producers.filter((x) => x.id === producerId);
-  return data.coffee > filteredData[0].price;
+  //if player can afford the producer:
+  if (data.coffee > filteredData[0].price) {
+    //increases quantity of the producer by 1
+    filteredData[0].qty++;
+    // decreases player's coffee by producer's price
+    data.coffee -= filteredData[0].price;
+    //update's producers price to 125% more if player bought it
+    filteredData[0].price = updatePrice(filteredData[0].price);
+    //returns true if player was able to afford original price
+    data.totalCPS += filteredData[0].cps;
+    return true;
+  }
+  return false;
 }
 
 function buyButtonClick(event, data) {
