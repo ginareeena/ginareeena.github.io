@@ -13,7 +13,10 @@ function clickCoffee(data) {
   data.coffee++;
   // document.getElementById("coffee_counter").innerText += 1;
   updateCoffeeView(data.coffee);
-  //this second line isn't tested but they hint at doing it so not sure it works
+  //this second line isn't tested but they hint at doing it so not sure it works- it worked!
+  //TEST:::::::!!
+  console.log("TEST line 18!");
+  renderProducers(data);
 }
 
 /**************
@@ -72,9 +75,6 @@ function makeProducerDiv(producer) {
   return containerDiv;
 }
 
-//parent could be a class, tag, or id
-//
-
 function deleteAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
@@ -87,7 +87,7 @@ function renderProducers(data) {
   producerContainer.innerHTML = "";
 
   // console.log("producerContainer", producerContainer);
-  console.log("producerContainer before", producerContainer);
+  // console.log("producerContainer before", producerContainer);
 
   unlockProducers(data.producers, data.coffee);
 
@@ -102,23 +102,10 @@ function renderProducers(data) {
     producerContainer.appendChild(makeProducerDiv(x))
   );
   // console.log("producerContainer after", producerContainer.innerHTML);
-
-  // .forEach(producerContainer.appendChild(makeProducerDiv(x)));
-
-  //  let newDiv = makeProducerDiv();
-
-  // producerContainer.appendChild();
-
-  // let filteredData = data.producers.filter((x) => x.unlocked === "true");
-
-  // filteredData.forEach((x) =>
-  //   producerContainer.appendChild(makeProducerDiv(x))
-  // );
-
-  // let newProducersArr = filteredData.map((x) => makeProducerDiv(x));
-
-  // newProducersArr.forEach((x) => producerContainer.append(x));
 }
+
+// let coffeeButton = document.getElementById("big_coffee");
+// coffeeButton.addEventListener("click", renderProducers(data));
 
 //appends some producer div elements to the producer container...
 
