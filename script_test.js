@@ -398,11 +398,11 @@ describe("Slice 3: Buying Producers & Tick", function () {
       };
     });
 
-    xit("returns an object", function () {
+    it("returns an object", function () {
       const result = code.getProducerById(data, "producer_A");
       expect(result).to.be.an("object");
     });
-    xit("returns the correct producer object", function () {
+    it("returns the correct producer object", function () {
       const testIDs = ["producer_A", "producer_B", "producer_C"];
       const results = testIDs.map((testID) =>
         code.getProducerById(data, testID)
@@ -411,7 +411,7 @@ describe("Slice 3: Buying Producers & Tick", function () {
       expect(results[1].price).to.be.equal(200);
       expect(results[2].price).to.be.equal(500);
     });
-    xit("is not hardcoded to pass the tests", function () {
+    it("is not hardcoded to pass the tests", function () {
       // Just like the last test, but we've reversed the order of the producers in the data
       data.producers = data.producers.reverse();
       const testIDs = ["producer_A", "producer_B", "producer_C"];
@@ -438,15 +438,15 @@ describe("Slice 3: Buying Producers & Tick", function () {
       };
     });
 
-    xit("returns a boolean", function () {
+    it("returns a boolean", function () {
       const result = code.canAffordProducer(data, "producer_A");
       expect(result).to.be.a("boolean");
     });
-    xit("returns true if the player can afford the producer", function () {
+    it("returns true if the player can afford the producer", function () {
       const result = code.canAffordProducer(data, "producer_A");
       expect(result).to.be.equal(true);
     });
-    xit("returns false if the player cannot afford the producer", function () {
+    it("returns false if the player cannot afford the producer", function () {
       const result = code.canAffordProducer(data, "producer_B");
       expect(result).to.be.equal(false);
     });
