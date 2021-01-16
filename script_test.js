@@ -469,7 +469,7 @@ describe("Slice 3: Buying Producers & Tick", function () {
       spyOnQuerySelector.restore();
     });
 
-    xit("updates the total cps indicator to display the current total cps", function () {
+    it("updates the total cps indicator to display the current total cps", function () {
       const cpsIndicator = document.getElementById("cps");
 
       code.updateCPSView(50);
@@ -481,12 +481,12 @@ describe("Slice 3: Buying Producers & Tick", function () {
   });
 
   describe("The updatePrice function", function () {
-    xit("returns an integer, not a float", function () {
+    it("returns an integer, not a float", function () {
       const result = code.updatePrice(501);
       expect(result).to.be.a("number");
       expect(result % 1).to.be.equal(0);
     });
-    xit("returns 125% of the input price, rounded down", function () {
+    it("returns 125% of the input price, rounded down", function () {
       const result = code.updatePrice(501);
       expect(result).to.be.equal(626);
     });
@@ -507,16 +507,16 @@ describe("Slice 3: Buying Producers & Tick", function () {
       };
     });
 
-    xit("returns a boolean", function () {
+    it("returns a boolean", function () {
       const result = code.attemptToBuyProducer(data, "producer_A");
       expect(result).to.be.a("boolean");
     });
 
-    xit("returns false if the player cannot afford the producer", function () {
+    it("returns false if the player cannot afford the producer", function () {
       const result = code.attemptToBuyProducer(data, "producer_B");
       expect(result).to.be.equal(false);
     });
-    xit("returns true if the player can afford the producer", function () {
+    it("returns true if the player can afford the producer", function () {
       const result = code.attemptToBuyProducer(data, "producer_A");
       expect(result).to.be.equal(true);
     });

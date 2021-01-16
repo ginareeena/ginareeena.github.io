@@ -125,20 +125,23 @@ function getProducerById(data, producerId) {
 }
 
 function canAffordProducer(data, producerId) {
+  // console.log("data before:", data);
   let newData = data.producers.filter((x) => x.id === producerId);
-  return data.coffee > newData.price;
+  return data.coffee > newData[0].price;
 }
 
 function updateCPSView(cps) {
-  // your code here
+  let cpsDisplay = document.getElementById("cps");
+  cpsDisplay.innerText = cps;
 }
 
 function updatePrice(oldPrice) {
-  // your code here
+  return Math.floor(oldPrice * 1.25);
 }
 
 function attemptToBuyProducer(data, producerId) {
-  // your code here
+  let filteredData = data.producers.filter((x) => x.id === producerId);
+  return data.coffee > filteredData[0].price;
 }
 
 function buyButtonClick(event, data) {
