@@ -92,28 +92,14 @@ function renderProducers(data) {
 
   producerContainer.innerHTML = "";
 
-  // console.log("producerContainer", producerContainer);
-  // console.log("producerContainer before", producerContainer);
-
   unlockProducers(data.producers, data.coffee);
 
   let filteredData = data.producers.filter((x) => x.unlocked === true);
 
-  // console.log("data", data);
-  // console.log("filteredData", filteredData);
-
-  // console.log("producerContainer before:", producerContainer.innerHTML);
-
   filteredData.forEach((x) =>
     producerContainer.appendChild(makeProducerDiv(x))
   );
-  // console.log("producerContainer after", producerContainer.innerHTML);
 }
-
-// let coffeeButton = document.getElementById("big_coffee");
-// coffeeButton.addEventListener("click", renderProducers(data));
-
-//appends some producer div elements to the producer container...
 
 // we're going to use this to make the divs and append them: makeProducerDiv(producer)
 
@@ -153,18 +139,13 @@ function attemptToBuyProducer(data, producerId) {
     filteredData[0].price = updatePrice(filteredData[0].price);
     //returns true if player was able to afford original price
     data.totalCPS += filteredData[0].cps;
-    console.log("THIS MAYBE FOR CPS commented out for now");
-    // updateCPSView(data.totalCPS);
-
+    updateCPSView(data.totalCPS);
     return true;
   }
   return false;
 }
 
-// console.log("your data", data);
-
 function buyButtonClick(event, data) {
-  // your code here
   if (event.target.id) {
     producerName = event.target.id;
 
@@ -174,7 +155,6 @@ function buyButtonClick(event, data) {
 
     if (canAffordProducer(data, producerId)) {
       attemptToBuyProducer(data, producerId);
-      //these two lines passed: we're testing putting them in the listener
       renderProducers(data);
       updateCoffeeView(data.coffee);
     } else {
@@ -222,6 +202,7 @@ if (typeof process === "undefined") {
     if (event.target.tagName === "BUTTON") {
       buyButtonClick(event, data);
     }
+
     // if (event.target.tagName !== "BUTTON" || event.target.id === undefined) {
     //   break;
     // } else {

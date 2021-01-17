@@ -650,7 +650,7 @@ describe("Slice 3: Buying Producers & Tick", function () {
     });
 
     // Hint: call a function you've already written!
-    xit("updates the total CPS on the DOM, reflecting that the new producer's CPS has been added", function () {
+    it("updates the total CPS on the DOM, reflecting that the new producer's CPS has been added", function () {
       const event = { target: { tagName: "BUTTON", id: "buy_producer_A" } };
       code.buyButtonClick(event, data);
       const cpsIndicator = document.getElementById("cps");
@@ -678,7 +678,7 @@ describe("Slice 3: Buying Producers & Tick", function () {
       };
     });
 
-    xit("increases coffee count by the total CPS", function () {
+    it("increases coffee count by the total CPS", function () {
       code.tick(data);
       expect(data.coffee).to.be.equal(100);
     });
