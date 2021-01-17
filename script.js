@@ -144,7 +144,8 @@ function buyButtonClick(event, data) {
       attemptToBuyProducer(data, producerId);
       renderProducers(data);
       updateCoffeeView(data.coffee);
-      // window.localStorage.setItem("data", JSON.stringify(data)
+      //TEST >>>>
+      window.localStorage.setItem("data", JSON.stringify(window.data));
     } else {
       window.alert("Not enough coffee!");
     }
