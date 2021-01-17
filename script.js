@@ -1,7 +1,16 @@
 /* eslint-disable no-alert */
 
-// const { coffee, totalCPS, producers} = require("./data");
-// const data = require("./data.js");
+if (window.localStorage.getItem("data")) {
+  window.data = JSON.parse(window.localStorage.getItem("data"));
+  updateCPSView(window.data.totalCPS);
+  updateCoffeeView(data.coffee);
+} else {
+  window.data = initialData;
+}
+
+// setInterval(() => {
+//   window.localStorage.setItem("data", JSON.stringify(window.data));
+// }, 300);
 
 /**************
  *   SLICE 1
@@ -31,10 +40,6 @@ function getUnlockedProducers(data) {
   let newArr = data.producers.filter((obj) => obj.unlocked === true);
   return newArr;
 }
-
-console.log(
-  "Check this function we commented it back in cuz it was commented out...:"
-);
 
 function capFirstChar(word) {
   return word.slice(0, 1).toUpperCase() + word.slice(1);
@@ -139,6 +144,7 @@ function buyButtonClick(event, data) {
       attemptToBuyProducer(data, producerId);
       renderProducers(data);
       updateCoffeeView(data.coffee);
+      // window.localStorage.setItem("data", JSON.stringify(data)
     } else {
       window.alert("Not enough coffee!");
     }
@@ -149,6 +155,8 @@ function tick(data) {
   let coffeeCount = (data.coffee += data.totalCPS);
   updateCoffeeView(coffeeCount);
   renderProducers(data);
+  //this below added:
+  window.localStorage.setItem("data", JSON.stringify(data));
 }
 
 /*************************

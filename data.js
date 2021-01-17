@@ -1,4 +1,4 @@
-window.data = {
+let initialData = {
   coffee: 0,
   totalCPS: 0,
   producers: [
@@ -89,4 +89,4 @@ window.data = {
   ],
 };
 
-module.exports = window.data;
+window.data = initialData;
