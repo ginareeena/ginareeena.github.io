@@ -81,7 +81,7 @@ describe("Slice 1: Clicking & Incrementing Coffee", function () {
     });
     // Here, we're not checking to see that you call updateCoffeeView, the
     // function you wrote above. But it would be a good idea to do so!
-    xit("updates the coffee counter element with the incremented value", function () {
+    it("updates the coffee counter element with the incremented value", function () {
       const coffeeCounter = document.getElementById("coffee_counter");
       const data = { coffee: 50, producers: [] };
       code.clickCoffee(data);
@@ -458,7 +458,7 @@ describe("Slice 3: Buying Producers & Tick", function () {
       resetJSDOM();
     });
 
-    xit("calls document.getElementById() or document.querySelector()", function () {
+    it("calls document.getElementById() or document.querySelector()", function () {
       const spyOnGetElementById = sinon.spy(document, "getElementById");
       const spyOnQuerySelector = sinon.spy(document, "querySelector");
       code.updateCPSView(100);

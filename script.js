@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 
-// const { coffee } = require("./data");
+// const { coffee, totalCPS, producers} = require("./data");
 
 /**************
  *   SLICE 1
