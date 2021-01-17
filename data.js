@@ -88,3 +88,5 @@ window.data = {
     },
   ],
 };
+
+module.exports = window.data;

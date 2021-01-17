@@ -4,6 +4,8 @@
  *   SLICE 1
  **************/
 
+// const data = require("./data.js");
+
 function updateCoffeeView(coffeeQty) {
   document.getElementById("coffee_counter").innerText = coffeeQty;
 }
@@ -151,18 +153,33 @@ function attemptToBuyProducer(data, producerId) {
     filteredData[0].price = updatePrice(filteredData[0].price);
     //returns true if player was able to afford original price
     data.totalCPS += filteredData[0].cps;
+    console.log("THIS MAYBE FOR CPS commented out for now");
+    // updateCPSView(data.totalCPS);
+
     return true;
   }
   return false;
 }
 
+// console.log("your data", data);
+
 function buyButtonClick(event, data) {
   // your code here
-  producerId = event.target.id.slice(4);
-  if (canAffordProducer(data, producerId)) {
-    attemptToBuyProducer(data, producerId);
-  } else {
-    window.alert("Not enough coffee!");
+  if (event.target.id) {
+    producerName = event.target.id;
+
+    producerId = producerName.slice(4);
+
+    console.log("data:", data);
+
+    if (canAffordProducer(data, producerId)) {
+      attemptToBuyProducer(data, producerId);
+      //these two lines passed: we're testing putting them in the listener
+      renderProducers(data);
+      updateCoffeeView(data.coffee);
+    } else {
+      window.alert("Not enough coffee!");
+    }
   }
   // producerName=id.slice(4)
   // data.producers.filter(x=>x.id===prodr)
@@ -198,8 +215,18 @@ if (typeof process === "undefined") {
   // Add an event listener to the container that holds all of the producers
   // Pass in the browser event and our data object to the event listener
   const producerContainer = document.getElementById("producer_container");
+
   producerContainer.addEventListener("click", (event) => {
-    buyButtonClick(event, data);
+    // console.log("event.target.tagName:", event.target.tagName);
+    // console.log("event", event);
+    if (event.target.tagName === "BUTTON") {
+      buyButtonClick(event, data);
+    }
+    // if (event.target.tagName !== "BUTTON" || event.target.id === undefined) {
+    //   break;
+    // } else {
+    //   buyButtonClick(event, data);
+    // }
   });
 
   // Call the tick function passing in the data object once per second
