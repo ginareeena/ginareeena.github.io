@@ -1,5 +1,7 @@
 /* eslint-disable no-alert */
 
+// const { coffee } = require("./data");
+
 /**************
  *   SLICE 1
  **************/
@@ -11,14 +13,8 @@ function updateCoffeeView(coffeeQty) {
 }
 
 function clickCoffee(data) {
-  // your code here
   data.coffee++;
-  // document.getElementById("coffee_counter").innerText += 1;
   updateCoffeeView(data.coffee);
-  //this second line isn't tested but they hint at doing it so not sure it works- it worked!
-  //another TEST below:
-  //this updates the page!
-  //why don't we need an event listener???
   renderProducers(data);
 }
 
@@ -40,14 +36,14 @@ function getUnlockedProducers(data) {
 console.log(
   "Check this function we commented it back in cuz it was commented out...:"
 );
-function makeDisplayNameFromId(id) {
-  // your code here
-  // let newStr = id[0].toUpperCase + id.slice(1);
-  let newStrArr = id.split("_");
-  return newStrArr.forEach(
-    (x) => x.slice(0, 1).toUpperCase() + x.slice(1).toLowerCase()
-  );
-}
+// function makeDisplayNameFromId(id) {
+//   // your code here
+//   // let newStr = id[0].toUpperCase + id.slice(1);
+//   let newStrArr = id.split("_");
+//   return newStrArr.forEach(
+//     (x) => x.slice(0, 1).toUpperCase() + x.slice(1).toLowerCase()
+//   );
+// }
 
 function capFirstChar(word) {
   return word.slice(0, 1).toUpperCase() + word.slice(1);
@@ -161,12 +157,14 @@ function buyButtonClick(event, data) {
       window.alert("Not enough coffee!");
     }
   }
-  // producerName=id.slice(4)
-  // data.producers.filter(x=>x.id===prodr)
 }
 
 function tick(data) {
   // your code here
+  let coffeeCount = (data.coffee += data.totalCPS);
+  updateCoffeeView(coffeeCount);
+
+  renderProducers(data);
 }
 
 /*************************
