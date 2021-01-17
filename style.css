@@ -3,6 +3,7 @@
 }
 body {
   margin: 0px;
+  /* background-color: tan; */
 }
 .column-container {
   display: flex;
@@ -10,6 +11,7 @@ body {
   height: 100vh;
   min-width: 650px;
 }
+
 .column {
   margin: 10px;
   margin-top: 0px;
@@ -44,10 +46,22 @@ body {
   cursor: pointer;
 }
 
+div.producer {
+  background-color: rgba(34, 20, 8, 0.851);
+  /* #633e1ffa;  #52331afa; #462c15fa; #2e1d0ffa;#4b2d14fa 3f2611fa*/
+  color: #e6ded7fa;
+  /* #f7dec6fa; bg: rgba(34, 20, 8, 0.851); */
+  /* #0b0601fa;
+   /* rgb(32, 25, 25); */
+  /* #1f1104fa; */
+  /* rgb(250, 247, 241); */
+  /* #fff3e9fa; */
+  /* rgb(255, 255, 255); */
+}
+
 #coffeePic {
-  margin-top: 10px;
-  width: 135px;
-  height: 125px;
+  margin-top: 13px;
+  width: 152px;
   background-color: white;
 }
 
