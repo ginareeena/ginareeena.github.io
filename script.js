@@ -1,12 +1,11 @@
 /* eslint-disable no-alert */
 
 // const { coffee, totalCPS, producers} = require("./data");
+// const data = require("./data.js");
 
 /**************
  *   SLICE 1
  **************/
-
-// const data = require("./data.js");
 
 function updateCoffeeView(coffeeQty) {
   document.getElementById("coffee_counter").innerText = coffeeQty;
@@ -36,14 +35,6 @@ function getUnlockedProducers(data) {
 console.log(
   "Check this function we commented it back in cuz it was commented out...:"
 );
-// function makeDisplayNameFromId(id) {
-//   // your code here
-//   // let newStr = id[0].toUpperCase + id.slice(1);
-//   let newStrArr = id.split("_");
-//   return newStrArr.forEach(
-//     (x) => x.slice(0, 1).toUpperCase() + x.slice(1).toLowerCase()
-//   );
-// }
 
 function capFirstChar(word) {
   return word.slice(0, 1).toUpperCase() + word.slice(1);
@@ -109,7 +100,6 @@ function getProducerById(data, producerId) {
 }
 
 function canAffordProducer(data, producerId) {
-  // console.log("data before:", data);
   let newData = data.producers.filter((x) => x.id === producerId);
   return data.coffee > newData[0].price;
 }
@@ -144,11 +134,7 @@ function attemptToBuyProducer(data, producerId) {
 function buyButtonClick(event, data) {
   if (event.target.id) {
     producerName = event.target.id;
-
     producerId = producerName.slice(4);
-
-    console.log("data:", data);
-
     if (canAffordProducer(data, producerId)) {
       attemptToBuyProducer(data, producerId);
       renderProducers(data);
@@ -160,10 +146,8 @@ function buyButtonClick(event, data) {
 }
 
 function tick(data) {
-  // your code here
   let coffeeCount = (data.coffee += data.totalCPS);
   updateCoffeeView(coffeeCount);
-
   renderProducers(data);
 }
 
@@ -195,17 +179,9 @@ if (typeof process === "undefined") {
   const producerContainer = document.getElementById("producer_container");
 
   producerContainer.addEventListener("click", (event) => {
-    // console.log("event.target.tagName:", event.target.tagName);
-    // console.log("event", event);
     if (event.target.tagName === "BUTTON") {
       buyButtonClick(event, data);
     }
-
-    // if (event.target.tagName !== "BUTTON" || event.target.id === undefined) {
-    //   break;
-    // } else {
-    //   buyButtonClick(event, data);
-    // }
   });
 
   // Call the tick function passing in the data object once per second

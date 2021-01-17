@@ -44,6 +44,13 @@ body {
   cursor: pointer;
 }
 
+#coffeePic {
+  margin-top: 10px;
+  width: 135px;
+  height: 125px;
+  background-color: white;
+}
+
 .counter-container {
   font-size: 30px;
   margin: 10px;
