@@ -88,6 +88,11 @@ div.producer {
   margin-top: 13px;
   width: 152px;
   background-color: white;
+  transition: 75ms ease;
+}
+#coffeePic:active {
+  transform: scale(1.01);
+  /* translateY(1px) */
 }
 
 .counter-container {

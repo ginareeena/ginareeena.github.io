@@ -8,6 +8,19 @@ if (window.localStorage.getItem("data")) {
   window.data = initialData;
 }
 
+let clearButton = document.getElementById("clear");
+
+clearButton.addEventListener("click", (event) => {
+  // if (event.target.id === "clear") {
+  // window.localStorage.removeItem(data);
+  // window.localStorage.clear("data");
+  // window.localStorage.clear();
+  // data = initialData;
+  // updateCPSView(window.data.totalCPS);
+  // updateCoffeeView(data.coffee);
+  // }
+});
+
 // setInterval(() => {
 //   window.localStorage.setItem("data", JSON.stringify(window.data));
 // }, 300);
